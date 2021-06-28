@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Project</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.21.0/slimselect.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.21.0/slimselect.css">
+</head>
+<body>
+    <form action="/newproject" method="POST">
+    <h2>Project name</h2>
+        <input type="text" name="pname" id="pname">
+    
+    <div class="content">
+        <h1>SlimSelect <span>Dropdown</span></h1>
+    
+        <div class="ding">
+            <h2>Project Manager</h2>
+            <select id="pmanager" name="pmanager">
+                <option value="" selected="selected">Choose Project Manager</option>
+                
+                    
+              
+                
+                    <% result.forEach(function (pro) { %>
+                        <option value="<%=pro.username%>"><%=pro.username%></option>
+                        <%}); %>
+            </select>
+        </div>
+    
+        <h2>Users</h2>
+        <div class="ding">
+            <h2>Option</h2>
+            <select id="users" multiple name="users">
+
+                <% result.forEach(function (pro) { %>
+                    <option value="<%=pro.username%>">
+                        <%=pro.username%>
+                    </option>
+                    <%}); %>
+            </select>
+        </div>
+    
+    
+    
+        
+    </div>
+   <script>
+ 
+
+
+new SlimSelect({
+  select: '#pmanager'
+});
+
+
+/*
+* Multiple
+*/
+new SlimSelect({
+  select: '#users'
+});
+
+
+    
+</script>
+    <input type="submit" value="Add this project">
+    
+    
+    
+    </form>
+    
+</body>
+</html>

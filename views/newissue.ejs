@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Issue</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.21.0/slimselect.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.21.0/slimselect.css">
+</head>
+<body>
+<h1>New issue</h1>
+<form action="/newissue" method="POST">
+
+
+<div class="ding">
+   
+    <select id="pname" name="pname">
+        <option value="" selected="selected">Select Project Name: </option>
+
+
+
+
+        <% result.forEach(function (pro) { %>
+            <option value="<%=pro.pname%>">
+                <%=pro.pname%>
+            </option>
+            <%}); %>
+            <script>
+                new SlimSelect({
+                        select: '#pname'
+                    });
+            </script>
+    </select>
+</div>
+<p>Topic : </p>
+<input type="text" name="topic" id="topic">
+<p>Type : </p>
+<input type="text" name="type" id="type">
+<p>Desciption : </p>
+<input type="text" name="dis" id="dis">
+<div class="ding">
+
+<select id="priority" name="priority">
+    <option value="" selected="selected">priority: </option>
+
+
+
+
+    
+        <option value="high">high</option>
+        <option value="normal">normal</option>
+        <option value="low">low</option>
+            <script>
+                new SlimSelect({
+                    select: '#pname'
+                });
+                 new SlimSelect({
+                        select: '#priority'
+                    });
+            </script>
+</select>
+</div>
+
+
+<input type="submit" value="Submit">
+
+</form>
+
+
+
+
+
+    
+</body>
+</html>
